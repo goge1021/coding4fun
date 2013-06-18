@@ -1,6 +1,6 @@
 public class PathSum {
   
-	private int sum;
+    private int sum;
     
     public boolean hasPathSum(TreeNode root, int sum) {
         // Start typing your Java solution below
@@ -10,23 +10,15 @@ public class PathSum {
     }
     
     public boolean foo(TreeNode node, int subSum){
+        //It is the point that we do not need to judge whether node.left or node right is null or not
         if(node == null){
             return false;
         }
-        if(node.left == null && node.right == null){
-            if(subSum + node.val == sum){
-                return true;
-            }
-            else {
-                return false;
-            }
-        } else if(node.left == null) {
-            return foo(node.right, subSum+node.val);
-        } else if(node.right == null) {
-            return foo(node.left, subSum+node.val);
-        } else {
-            return foo(node.right, subSum+node.val) || foo(node.left, subSum+node.val);
+        if(node.left == null && node.right == null && subSum + node.val == sum){
+            return true;
         }
+       
+        return foo(node.right, subSum+node.val) || foo(node.left, subSum+node.val);
     }
 
 }
