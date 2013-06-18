@@ -6,6 +6,7 @@ public class DecodeWays {
         	return 0;
         }
 		char[] string = s.toCharArray();
+		//Convenient for compute decodeNum[string.length-2]
         int[] decodeNum = new int[string.length+1];
         decodeNum[decodeNum.length-1] = 1;
         
