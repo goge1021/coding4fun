@@ -1,6 +1,11 @@
 public class Pow {
     public double pow(double x, int n){
-    	int binaryLen = Integer.toString(n, 2).length();
+    	boolean isNeg = false;
+		if(n < 0){
+			n = -n;
+			isNeg = true;
+		}
+		int binaryLen = Integer.toString(n, 2).length();
 		double[] temp = new double[binaryLen];
 		temp[0] = x;
 		for(int i=1; i<binaryLen; i++){
@@ -13,7 +18,7 @@ public class Pow {
 			}
 			n = n >> 1;
 		}
-		return ret;
+		return isNeg?1/ret:ret;
 	}
 	
 	public static void main(String[] args){
