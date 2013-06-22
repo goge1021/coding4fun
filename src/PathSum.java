@@ -1,5 +1,11 @@
 public class PathSum {
   
+	public class TreeNode {
+		public TreeNode left;
+		public TreeNode right;
+		int val;
+	}
+	
     private int sum;
     
     public boolean hasPathSum(TreeNode root, int sum) {

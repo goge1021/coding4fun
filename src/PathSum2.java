@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Definition for binary tree
  * public class TreeNode {
@@ -9,6 +11,12 @@
  */
 public class PathSum2 {
     
+	public class TreeNode {
+		public TreeNode left;
+		public TreeNode right;
+		int val;
+	}
+	
     private int sum;
     private ArrayList<ArrayList<Integer>> ret;
     
