@@ -1,21 +1,28 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 
 
 public class PlusOne {
 
-//	public int[] plusOne(int[] digits) {
-//        int jin = 1;
-//		for(int i=digits.length-1; i>=0; i--){
-//        	digits[i] += jin;
-//        	if(digits[i] >= 10){
-//        		digits[i] %= 10
-//        	}
-//        }
-//    }
+	public int[] plusOne(int[] digits) {
+        int jin = 1;
+		for(int i=digits.length-1; i>=0 && jin == 1; i--){
+        	digits[i] += jin;
+        	if(digits[i] >= 10){
+        		digits[i] %= 10;
+        		jin = 1;
+        	} else {
+        		jin = 0;
+        	}
+        }
+		if(jin == 1){
+			int[] newInt = new int[digits.length+1];
+			System.arraycopy(digits, 0, newInt, 1, digits.length);
+			newInt[0] = 1;
+			return newInt;
+		} else {
+			return digits;
+		}
+    }
 	
 	/**
 	 * @param args
@@ -23,13 +30,11 @@ public class PlusOne {
 	 */
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		BufferedReader reader = new BufferedReader(new FileReader(new File("C:\\Users\\Gu\\Desktop\\pics.txt")));
-		String line;
-		while((line = reader.readLine()) != null){
-			String[] token = line.split("_",4);
-			System.out.println("/"+token[0]+"/"+token[1]+"/"+token[2]+"/"+line);
+		PlusOne p = new PlusOne();
+		int[] r = p.plusOne(new int[]{9, 8});
+		for(int i=0; i<r.length; i++){
+			System.out.println(r[i]);
 		}
-		reader.close();
 	}
 
 }
