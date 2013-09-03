@@ -8,11 +8,18 @@ public class RemoveDuplicatesFromSortedList {
 	        val = x;
 	        next = null;
 	    }
+	    
+	    public String toString(){
+	    	ListNode cur =this;
+	    	StringBuilder sb = new StringBuilder();
+	    	while(cur != null){
+	    		sb.append(cur.val).append("->");
+	    	}
+	    	return sb.append("NULL").toString();
+	    }
 	}
 	
 	public ListNode deleteDuplicates(ListNode head) {
-        // Start typing your Java solution below
-        // DO NOT write main() function
         if(head == null){
             return null;
         } else {
@@ -32,4 +39,8 @@ public class RemoveDuplicatesFromSortedList {
         
         return head;
     }
+	
+	public static void main(String[] args){
+		
+	}
 }
